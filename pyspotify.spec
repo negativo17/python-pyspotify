@@ -7,6 +7,7 @@ URL:            https://pyspotify.readthedocs.io/
 
 Source0:        https://github.com/jodal/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
+BuildRequires:  gcc
 BuildRequires:  libspotify-devel
 BuildRequires:  python3-devel
 
