@@ -1,11 +1,13 @@
-Name:           pyspotify
+%global real_name pyspotify
+
+Name:           python-pyspotify
 Version:        2.1.3
 Release:        1%{?dist}
 Summary:        Python bindings for libspotify
 License:        MIT
 URL:            https://pyspotify.readthedocs.io/
 
-Source0:        https://github.com/jodal/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/jodal/%{name}/archive/v%{version}.tar.gz#/%{real_name}-%{version}.tar.gz
 
 BuildRequires:  gcc
 BuildRequires:  libspotify-devel
@@ -33,10 +35,10 @@ pyspotify uses CFFI to make a pure Python wrapper around the official libspotify
 library.
 
 %prep
-%autosetup
+%autosetup -n %{real_name}-%{version}
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" %{__python3} setup.py build
+CFLAGS="%optflags" %{__python3} setup.py build
 
 %install
 %{__python3} setup.py install -O1 --skip-build --root %{buildroot}
