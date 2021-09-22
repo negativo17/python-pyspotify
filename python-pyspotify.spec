@@ -7,7 +7,7 @@
 
 Name:           python-pyspotify
 Version:        2.1.3
-Release:        3%{!?tag:.%{date}git%{shortcommit0}}%{?dist}
+Release:        4%{!?tag:.%{date}git%{shortcommit0}}%{?dist}
 Summary:        Python bindings for libspotify
 License:        MIT
 URL:            https://pyspotify.readthedocs.io/
@@ -22,6 +22,7 @@ BuildRequires:  gcc
 BuildRequires:  libspotify-devel
 BuildRequires:  python3-devel
 BuildRequires:  python3-cffi
+BuildRequires:  python3-setuptools
 
 %description
 pyspotify provides a Python interface to Spotify's online music streaming
@@ -66,6 +67,9 @@ CFLAGS="%optflags" %{__python3} setup.py build
 %{python3_sitearch}/*
 
 %changelog
+* Wed Sep 22 2021 Fabio Valentini <decathorpe@gmail.com> - 2.1.3-4.20210306git515ac42
+- Add BR: python3-setuptools to fix build on Fedora 35+.
+
 * Thu May 27 2021 Simone Caronni <negativo17@gmail.com> - 2.1.3-3.20210306git515ac42
 - Update to latest snapshot.
 - Fix source URL.
